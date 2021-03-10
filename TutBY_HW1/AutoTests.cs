@@ -15,10 +15,9 @@ namespace Automation_HW1
             private IWebDriver _driver;
             const string username = "automationtraining2021@tut.by";
             const string password = "20automationtraini";
-            //private By _writeMailButtonSelector = By.XPath("//span[@class='mail-ComposeButton-Text']");
 
             private By actualUserNameSelector = 
-                By.XPath("//div[@class='legouser legouser_fetch-accounts_yes legouser_hidden_yes i-bem']/a/span[@class='user-account__name']");
+                By.XPath("//a[contains(@class, 'left-name')]/span[@class='user-account__name']");
 
             [SetUp]
             public void Initialize()
@@ -38,7 +37,7 @@ namespace Automation_HW1
 
                 //var writeMailButton = _driver.FindElement(_writeMailButtonSelector);
                 Thread.Sleep(5000);
-                var actualUserName = _driver.FindElement(actualUserNameSelector).Text;
+                var actualUserName = _driver.FindElement(actualUserNameSelector).GetAttribute("innerHTML");
                
 
                 Assert.That(actualUserName, Is.EqualTo(username), "You are not logged in");
