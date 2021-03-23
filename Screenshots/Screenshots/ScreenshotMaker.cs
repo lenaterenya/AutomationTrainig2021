@@ -18,7 +18,7 @@ namespace Screenshots
         {
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
             string timeStamp = DateTime.Now.ToString("fff");
-            ss.SaveAsFile("C://Users/Lena/Image" + timeStamp + ".png",
+            ss.SaveAsFile(Environment.CurrentDirectory + timeStamp + ".png",
                 ScreenshotImageFormat.Png);
         }
     }
